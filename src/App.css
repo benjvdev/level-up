@@ -19,7 +19,8 @@
 body{
   width: 100vw;
   height: 100vh;
-  background-color: black;
+  background-color: white;
+  margin: 0;
 }
 #topbar-container{
   justify-content: center;
@@ -27,7 +28,7 @@ body{
   display: flex;
   align-items: center;
   column-gap: 5vw;
-  background-color: #1E90FF;
+  background: linear-gradient(45deg, #1E90FF, #1E90FF)
 }
 #search-bar{
   display: flex;
@@ -63,7 +64,7 @@ body{
 }
 #inicio-sesion{
   padding-top: 1rem;
-  color: white;
+  color: #000000;
 }
 a :hover{
   cursor: pointer;
@@ -108,9 +109,10 @@ a :hover{
 
 #products{
   display: flex;
+  padding-top: 2rem;
   gap: 2rem;
   flex-wrap: wrap;
-  background-color: white;
+  padding: 1rem;
 }
 .product{
   width: 250px;
@@ -118,6 +120,7 @@ a :hover{
   box-shadow: 0 0 5px #cdcdcd;
   border-radius: 20px;
   padding: 10px;
+  background: linear-gradient(45deg, #39FF14, #1E90FF);
 }
 .product-image{
   width: 250px;

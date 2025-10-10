@@ -34,7 +34,7 @@ export default function TopBar() {
 
       <SearchBar/>
       <p id='inicio-sesion'> Inicia sesión <a href='#'
-        style={{color: "white",textDecoration: "none"}}
+        style={{color: "black",textDecoration: "underline"}}
         onClick={(e) =>{
           e.preventDefault();
           setShowModal(true)
