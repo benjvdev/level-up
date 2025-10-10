@@ -26,6 +26,7 @@ export default function TopBar() {
 
   return (
     <>
+    <div id='topbar-container'>
       <Logo
       onClick={() =>{
           href='/Inicio'
@@ -47,6 +48,7 @@ export default function TopBar() {
         document.body
       )}
       <BotonCarrito/>
+      </div>
     </>
   )
 }

@@ -4,6 +4,7 @@ import Inicio from './components/pages/Inicio'
 import About from './components/pages/About'
 import { Link } from 'react-router-dom'
 import Register from './components/pages/Register'
+import Cart from './components/pages/Cart'
 
 function App() {
   return (
@@ -12,8 +13,9 @@ function App() {
       <Link to='/about'>About</Link> */}
       <Routes>
         <Route path='/' element={<Inicio />} />
-        <Route path='/Register' element={<Register />} />
+        <Route path='/register' element={<Register />} />
         <Route path='/about' element={<About />} />
+        <Route path='/cart' element={<Cart />} />
       </Routes>
     </BrowserRouter>
   );  
