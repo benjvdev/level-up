@@ -1,9 +1,10 @@
 import React, {useEffect, useRef, useState} from 'react'
-import SearchBar from '../atoms/SearcBar'
-import Logo from '../atoms/Logo'
-import BotonCarrito from '../atoms/BotonCarrito'
-import LoginModal from './LoginModal';
-import { href } from 'react-router-dom';
+import SearchBar from '../../atoms/Search Bar/SearchBar'
+import Logo from '../../atoms/Logo/Logo'
+import BotonCarrito from '../../atoms/Boton Carrito/BotonCarrito'
+import LoginModal from '../Login Modal/LoginModal';
+import './TopBar.css'
+import { Navigate} from 'react-router-dom';
 import { createPortal } from 'react-dom';
 
 export default function TopBar() {
@@ -29,7 +30,7 @@ export default function TopBar() {
     <div id='topbar-container'>
       <Logo
       onClick={() =>{
-          href='/Inicio'
+        Navigate('/');
         }}/>
 
       <SearchBar/>

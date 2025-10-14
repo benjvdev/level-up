@@ -1,0 +1,39 @@
+#login-modal{
+  position: fixed;
+  display: flex;
+  height: 25vh;
+  width: 15vw;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  flex-direction: column;
+  row-gap: .7rem;
+  border-radius: .5rem;
+  top: 5.99rem;
+  right: 6.1%;
+  transform: translateX(-50%);
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: .5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+#login-modal > button{
+ background-color:#1E90FF;
+ border-color: #1E90FF;
+ color: white;
+ border-radius: .2rem;
+ border-style: none;
+ width: 12.5rem;
+ height: 1.5rem;
+}
+#login-modal > button:hover{
+  cursor: pointer;
+}
+#login-modal > input{
+  height: 1.5rem;
+  width: 12rem;
+  border-radius: .3rem;
+  border-color: #c2c2c2;
+  border-style: solid;
+  border-width: .13rem;
+}

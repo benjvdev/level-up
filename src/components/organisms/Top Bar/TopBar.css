@@ -1,0 +1,16 @@
+#topbar-container{
+  justify-content: center;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  column-gap: 5vw;
+  background-color: #1E90FF;
+}
+
+#inicio-sesion{
+  padding-top: 1rem;
+  color: white;
+}
+a :hover{
+  cursor: pointer;
+}

@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-import Inicio from './components/pages/Inicio'
-import About from './components/pages/About'
+import Inicio from './components/pages/Pagina inicio/Inicio'
+import About from './components/pages/About page/About'
 import { Link } from 'react-router-dom'
-import Register from './components/pages/Register'
-import Cart from './components/pages/Cart'
+import Register from './components/pages/Pagina Registro/Register'
+import Cart from './components/pages/Cart Page/Cart'
 
 function App() {
   return (

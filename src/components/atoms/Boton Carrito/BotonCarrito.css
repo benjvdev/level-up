@@ -1,0 +1,11 @@
+#cart-btn{
+  height: 4.5vh;
+  width: 3.5vw;
+  background-color: #ffffff;
+  border-color: white;
+  border-style: solid;
+  border-radius: .5rem;
+}
+#cart-btn :hover{
+  cursor: pointer;
+}

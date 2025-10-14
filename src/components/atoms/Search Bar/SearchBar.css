@@ -1,0 +1,22 @@
+#search-bar{
+  display: flex;
+  width: 50vw;
+  height: 10vh;
+  align-items: center;
+  justify-content: center;
+}
+#search-bar > input{
+  width: 80%;
+  height: 4vh;
+}
+#search-bar > button{
+  height: 4.4vh;
+  width: 2.5vw;
+  background-color: #ffffff;
+  border-color: white;
+  border-style: solid;
+}
+
+#search-bar > button :hover{
+  cursor: pointer;
+}

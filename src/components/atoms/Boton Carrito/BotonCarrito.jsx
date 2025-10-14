@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import './BotonCarrito.css'
 
 export default function BotonCarrito() {
    const navigate = useNavigate();

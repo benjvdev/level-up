@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './Product.css'
 export default function Product(props) {
     const {code,image,name,description,price} = props
   return (

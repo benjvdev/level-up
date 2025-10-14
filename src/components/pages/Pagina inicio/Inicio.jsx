@@ -1,7 +1,7 @@
 import React from 'react'
-import TopBar from '../organisms/TopBar'
-import Product from '../organisms/Product'
-
+import TopBar from '../../organisms/Top Bar/TopBar'
+import Product from '../../organisms/Product/Product'
+import './Inicio.css'
 
 export default function Inicio() {
   
