@@ -50,43 +50,45 @@ export default function Register() {
     <form action="#" id="register-form" ref={formRef} onSubmit={handleSubmit}>
           <h1>Crear nueva cuenta</h1>
           <div className="row">
-              <label htmlFor="nombres">Nombres</label>
+              <label htmlFor="nombres">Nombres:</label>
               <input type="text" id="nombres" placeholder="Juan Andres"
                 onChange={handleName} value={nombre}
                 className={nombre.length<3?'error':''}
               />
           </div>
           <div className="row">
-              <label htmlFor="apellidos">Apellidos</label>
+              <label htmlFor="apellidos">Apellidos:</label>
               <input type="text" id="apellidos" placeholder="Perez Muñoz"
               />
           </div>
           <div className="row">
-              <label htmlFor="email">E-mail</label>
+              <label htmlFor="email">E-mail:</label>
               <input type="text" id="email" placeholder="juanito@gmail.com"
                 onChange={handleMail} value={email}
                 className={email.includes('@')?'':'error'}
               />
           </div>
           <div className="row">
-              <label htmlFor="direccion">Dirección</label>
+              <label htmlFor="direccion">Dirección:</label>
               <input type="text" id="direccion" placeholder="Los Molles #25"/>
           </div>
           <div className="row">
-              <label htmlFor="clave1">Contraseña</label>
-              <input type="password" id="clave1" placeholder="Clave123456"
+              <label htmlFor="clave1">Contraseña:</label>
+              <input type="password" id="clave1"
                 value={clave1} onChange={handlePassword1}
                 className={clave1==clave2?'':'error'}
               />
           </div>
           <div className="row">
-              <label htmlFor="clave2">Confirmar contraseña</label>
-              <input type="password" id="clave2" placeholder="Clave123456"
+              <label htmlFor="clave2">Confirmar contraseña:</label>
+              <input type="password" id="clave2"
               value={clave2} onChange={handlePassword2}/>
           </div>
           <p id="errores">{error}</p>
-          <button type="reset">Limpiar</button>
-          <button type="sumbit">Enviar</button>
+          <div className="button-container">
+            <button type="reset">Limpiar</button>
+            <button type="submit">Registrarme</button>  
+          </div>
       </form>
     </div>
   </>
