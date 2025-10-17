@@ -1,41 +1,31 @@
 import React from 'react'
 import './Cart.css'
+import TopBar from '../../organisms/Top Bar/TopBar'
 export default function Cart() {
     const products = JSON.parse(localStorage.getItem('products')) || []
   return (
     <>
-        <div id='cart-container'>
-            <p>🛒<span className="items">{products.length}</span></p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>CODIGO</th>
-                        <th>IMAGEN</th>
-                        <th>NOMBRE</th>
-                        <th>DESCRIPCION</th>
-                        <th>PRECIO</th>
-                        <th>ELIMINAR</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        products.map(p=>(
-                            <tr key={p.code}>
-                                <td>{p.code}</td>
-                                <td>
-                                    <img src={p.image}/>
-                                </td>
-                                <td>{p.name}</td>
-                                <td>{p.description}</td>
-                                <td>{p.price}</td>
-                                <td><a href='#'>eliminar</a></td>
-                            </tr>
-                        ))
-                    }
-                </tbody>
-            </table>
-            <br />
-            <button onClick={()=> localStorage.removeItem('products')}>Vaciar</button>
+        <TopBar/>
+        <div className="cart">
+            <h2>Carrito de compras</h2>
+            {products.length === 0 ? (
+                <p>El carrito está vacío</p>
+            ) : (
+                <div className="cart-items">
+                    {products.map((p, i) => (
+                        <div key={i} className="cart-item">
+                        <div className="product-cart-image"
+                            style={{ backgroundImage: `url(${p.image})` }}>
+                        </div>
+                        <div className="cart-info">
+                        <p className="cart-name">{p.name}</p>
+                        <p className="cart-description">{p.description}</p>
+                        <p className="cart-price">{p.price}</p>
+                        </div>
+                        </div>
+                    ))}
+                </div>
+            )}
         </div>
     </>
   )
