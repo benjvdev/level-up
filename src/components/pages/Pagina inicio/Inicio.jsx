@@ -12,46 +12,53 @@ export default function Inicio() {
     <div id="products">
         <Product
             code="1"
-            image="https://i5.walmartimages.cl/asr/55c8b34e-637a-4c7e-91a6-cf5edf74031e.8e578ce5b098c035cadfb2d5c4d6a09b.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
-            name="labubu"
-            description="esta wea es pa wekos"
-            price="$89.990" />
+            image="https://devirinvestments.s3.eu-west-1.amazonaws.com/img/catalog/product/8436017220100-1200-face3d.jpg"
+            name="Catan"
+            description="En familia o con amigos, Catan es el juego de mesa imprescindible para todos los hogares. Con reglas rápidas de aprender y fáciles de explicar."
+            price="$29.990" 
+            category="juegos de mesa"/>
         <Product
             code="2"
-            image="https://casaverde.mx/cdn/shop/files/te-matcha-propiedades-y-usos_01.jpg?v=1717786284&width=493"
-            name="Te matcha"
-            description="no se ni q wea es"
-            price="$4.990" />
+            image="https://devirinvestments.s3.eu-west-1.amazonaws.com/img/catalog/product/8436017222593-1200-face3d-copy.jpg"
+            name="Carcassonne"
+            description=":Un juego de colocación de fichas donde los jugadores construyen el paisaje alrededor de la fortaleza medieval de Carcassonne. Ideal para 2-5 jugadores y fácil de aprender."
+            price="$24.990"
+            category="juegos de mesa" />
         <Product
             code="3"
-            image="https://casaverde.mx/cdn/shop/files/te-matcha-propiedades-y-usos_01.jpg?v=1717786284&width=493"
-            name="Te matcha"
-            description="no se ni q wea es"
-            price="$4.990" />
+            image="https://cdnx.jumpseller.com/notebook-store/image/64988646/resize/540/540?1751055230"
+            name="Controlador Inalámbrico Xbox Series X"
+            description="Ofrece una experiencia de juego cómoda con botones mapeables y una respuesta táctil mejorada. Compatible con consolas Xbox y PC."
+            price="$49.990" 
+            category="accesorios"/>
         <Product
             code="4"
-            image="https://casaverde.mx/cdn/shop/files/te-matcha-propiedades-y-usos_01.jpg?v=1717786284&width=493"
-            name="Te matcha"
-            description="no se ni q wea es"
-            price="$4.990" />
+            image="https://media.spdigital.cl/thumbnails/products/tlq8deac_54de6536_thumbnail_512.jpg"
+            name="Auriculares Gamer HyperX Cloud II"
+            description=": Proporcionan un sonido envolvente de calidad con un micrófono desmontable y almohadillas de espuma viscoelástica para mayor comodidad durante largas sesiones de juego."
+            price="$64.990" 
+            category="accesorios"/>
         <Product
             code="5"
-            image="https://i5.walmartimages.cl/asr/55c8b34e-637a-4c7e-91a6-cf5edf74031e.8e578ce5b098c035cadfb2d5c4d6a09b.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
-            name="labubu"
-            description="esta wea es pa wekos"
-            price="$89.990" />
+            image="https://media.falabella.com/falabellaCL/141344101_01/w=1500,h=1500,fit=pad"
+            name="Playstation 5"
+            description=": La consola de última generación de Sony, que ofrece gráficos impresionantes y tiempos de carga ultrarrápidos para una experiencia de juego inmersiva."
+            price="$689.990" 
+            category="consolas"/>
         <Product
             code="6"
-            image="https://i5.walmartimages.cl/asr/55c8b34e-637a-4c7e-91a6-cf5edf74031e.8e578ce5b098c035cadfb2d5c4d6a09b.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
-            name="labubu"
-            description="esta wea es pa wekos"
-            price="$89.990" />
+            image="https://media.falabella.com/falabellaCL/148061408_01/w=1500,h=1500,fit=pad"
+            name="PC Gamer ASUS ROG Strix"
+            description=": Un potente equipo diseñado para los gamers más exigentes, equipado con los últimos componentes para ofrecer un rendimiento excepcional en cualquier juego."
+            price="$2.289.990" 
+            category="computadores gamer"/>
         <Product
-            code="7"
-            image="https://i5.walmartimages.cl/asr/55c8b34e-637a-4c7e-91a6-cf5edf74031e.8e578ce5b098c035cadfb2d5c4d6a09b.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
-            name="labubu"
-            description="esta wea es pa wekos"
-            price="$89.990" />
+            code="7 "
+            image="https://http2.mlstatic.com/D_Q_NP_746242-MLA49725399018_042022-O.webp"
+            name="Silla Gamer Secretlab Titan"
+            description="Diseñada para el máximo confort, esta silla ofrece un soporte ergonómico y personalización ajustable para sesiones de juego prolongadas."
+            price="$189.990" 
+            category= "sillas gamer"/>
     </div>  
     </>
   )
