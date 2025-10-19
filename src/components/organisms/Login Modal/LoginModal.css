@@ -37,3 +37,51 @@
   border-style: solid;
   border-width: .13rem;
 }
+@media (max-width: 1200px) {
+  #login-modal {
+    width: 20vw;
+    height: 28vh;
+    right: 8%;
+  }
+}
+
+@media (max-width: 992px) {
+  #login-modal {
+    width: 30vw;
+    height: 30vh;
+    right: 10%;
+    top: 6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #login-modal {
+    width: 45vw;
+    height: 32vh;
+    right: 5%;
+    top: 6rem;
+  }
+}
+
+@media (max-width: 576px) {
+  #login-modal {
+    width: 70vw;
+    height: auto;
+    top: 6rem;
+    right: 50%;
+    transform: translateX(50%);
+    padding: 1rem;
+  }
+
+  #login-modal > input,
+  #login-modal > button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  #login-modal {
+    width: 85vw;
+    font-size: 0.9rem;
+  }
+}
