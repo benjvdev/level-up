@@ -2,6 +2,7 @@ import React from 'react'
 import TopBar from '../../organisms/Top Bar/TopBar'
 import Product from '../../organisms/Product/Product'
 import './Inicio.css'
+import CategoryMenu from '../../organisms/Category Menu/CategoryMenu'
 
 export default function Inicio() {
   
@@ -9,6 +10,7 @@ export default function Inicio() {
   return (
     <>
     <TopBar/> 
+    <CategoryMenu/>
     <div id="products">
         <Product
             code="1"
@@ -30,14 +32,14 @@ export default function Inicio() {
             name="Controlador Inalámbrico Xbox Series X"
             description="Ofrece una experiencia de juego cómoda con botones mapeables y una respuesta táctil mejorada. Compatible con consolas Xbox y PC."
             price="$49.990" 
-            category="accesorios"/>
+            category="gaming y streaming"/>
         <Product
             code="4"
             image="https://media.spdigital.cl/thumbnails/products/tlq8deac_54de6536_thumbnail_512.jpg"
             name="Auriculares Gamer HyperX Cloud II"
             description=": Proporcionan un sonido envolvente de calidad con un micrófono desmontable y almohadillas de espuma viscoelástica para mayor comodidad durante largas sesiones de juego."
             price="$64.990" 
-            category="accesorios"/>
+            category="gaming y streaming"/>
         <Product
             code="5"
             image="https://media.falabella.com/falabellaCL/141344101_01/w=1500,h=1500,fit=pad"
@@ -51,14 +53,14 @@ export default function Inicio() {
             name="PC Gamer ASUS ROG Strix"
             description=": Un potente equipo diseñado para los gamers más exigentes, equipado con los últimos componentes para ofrecer un rendimiento excepcional en cualquier juego."
             price="$2.289.990" 
-            category="computadores gamer"/>
+            category="computacion"/>
         <Product
             code="7 "
             image="https://http2.mlstatic.com/D_Q_NP_746242-MLA49725399018_042022-O.webp"
             name="Silla Gamer Secretlab Titan"
             description="Diseñada para el máximo confort, esta silla ofrece un soporte ergonómico y personalización ajustable para sesiones de juego prolongadas."
             price="$189.990" 
-            category= "sillas gamer"/>
+            category= "gaming y streaming"/>
     </div>  
     </>
   )

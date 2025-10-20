@@ -5,6 +5,8 @@ import About from './components/pages/About page/About'
 import { Link } from 'react-router-dom'
 import Register from './components/pages/Pagina Registro/Register'
 import Cart from './components/pages/Cart Page/Cart'
+import CategoryPage from './components/pages/Category page/CategoryPage.Jsx'
+
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/about' element={<About />} />
         <Route path='/cart' element={<Cart />} />
+        <Route path="/categories/:categoryName" element={<CategoryPage />} />
       </Routes>
     </BrowserRouter>
   );  
