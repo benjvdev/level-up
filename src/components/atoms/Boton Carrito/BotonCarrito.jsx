@@ -1,10 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import './BotonCarrito.css'
 
 export default function BotonCarrito() {
    const navigate = useNavigate();
   return (
-    <button id="cart-btn"  onClick={()=>navigate("/cart")} >
+    <button id="cart-btn"  onClick={()=>navigate("/cart")}>
         <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
             <circle cx="9" cy="21" r="1"></circle>

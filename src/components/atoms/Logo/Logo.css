@@ -1,0 +1,12 @@
+#logo{
+  background-image: url('../public/img/Level-Up.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 5.8vw;
+  height: 10vh;
+}
+
+#logo:hover{
+  cursor: pointer;
+}

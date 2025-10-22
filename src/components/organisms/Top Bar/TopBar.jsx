@@ -1,14 +1,16 @@
 import React, {useEffect, useRef, useState} from 'react'
-import SearchBar from '../atoms/SearcBar'
-import Logo from '../atoms/Logo'
-import BotonCarrito from '../atoms/BotonCarrito'
-import LoginModal from './LoginModal';
-import { href } from 'react-router-dom';
+import SearchBar from '../../atoms/Search Bar/SearchBar'
+import Logo from '../../atoms/Logo/Logo'
+import BotonCarrito from '../../atoms/Boton Carrito/BotonCarrito'
+import LoginModal from '../Login Modal/LoginModal';
+import './TopBar.css'
 import { createPortal } from 'react-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function TopBar() {
   const [showModal, setShowModal] = useState(false);
   const modalRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -29,12 +31,12 @@ export default function TopBar() {
     <div id='topbar-container'>
       <Logo
       onClick={() =>{
-          href='/Inicio'
+        navigate('/');
         }}/>
 
       <SearchBar/>
       <p id='inicio-sesion'> Inicia sesión <a href='#'
-        style={{color: "black",textDecoration: "underline"}}
+        style={{color: "white",textDecoration: "none"}}
         onClick={(e) =>{
           e.preventDefault();
           setShowModal(true)

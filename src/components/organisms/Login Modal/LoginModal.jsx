@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './LoginModal.css'
 export default function Login() {
   return (
       <form action="#" id='login-modal'>

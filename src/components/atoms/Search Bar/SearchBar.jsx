@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './SearchBar.css'
 export default function BotonBuscar() {
   return (
     <form id='search-bar'>

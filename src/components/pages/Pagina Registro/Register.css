@@ -1,0 +1,130 @@
+#form-container{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ececec;
+}
+
+#register-form{
+  display: flex;
+  flex-direction: column;
+  width: 80vw; 
+  max-width: 600px; 
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: .5rem;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1); 
+  margin: 2rem; 
+  padding: 2rem; 
+  gap: .5rem; 
+}
+
+#register-form h1 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.row{
+  display: flex;
+  flex-direction: column;
+  width: 100%; 
+  max-width: 400px; 
+  margin-bottom: 1rem; 
+}
+
+.row label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.row input {
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  width: 100%;
+}
+
+.row input:focus {
+  outline: none;
+  border-color: #1E90FF;
+  box-shadow: 0 0 5px rgba(30, 144, 255, 0.3);
+}
+
+.row input.error {
+  border-color: #ff4444;
+  background-color: #fff8f8;
+}
+
+#errores {
+  color: #ff4444;
+  text-align: center;
+  margin: 0;
+  min-height: 1.5rem;
+  font-size: 1rem;
+  transition: opacity 0.3s ease;
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  margin-top: .5rem;
+}
+.button-container button {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  max-width: 200px;
+}
+
+.button-container button[type="submit"] {
+  background-color: #1E90FF;
+  color: white;
+  border: 2px solid #1E90FF;
+}
+
+.button-container button[type="submit"]:hover {
+  background-color: #1C86EE;
+  border-color: #1C86EE;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(30, 144, 255, 0.3);
+}
+.button-container button[type="reset"] {
+  background-color: #1E90FF;
+  color: white;
+  border: 2px solid #1E90FF;
+}
+
+.button-container button[type="reset"]:hover {
+  background-color: #1C86EE;
+  border-color: #1C86EE;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(30, 144, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  #register-form {
+    width: 95vw;
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .row {
+    max-width: 100%;
+  }
+}
