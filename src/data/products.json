@@ -54,5 +54,13 @@
     "description": "Diseñada para el máximo confort, esta silla ofrece un soporte ergonómico y personalización ajustable para sesiones de juego prolongadas.",
     "price": "$189.990",
     "category": "gaming y streaming"
+  },
+  {
+    "code": "8",
+    "image": "https://media.falabella.com/falabellaCL/142115021_01/w=1500,h=1500,fit=pad",
+    "name": " Mouse Gamer Logitech G502 HERO",
+    "description": " Con sensor de alta precisión y botones personalizables, este mouse es ideal para gamers que buscan un control preciso y personalización",
+    "price": "$44.990",
+    "category": "gaming y streaming"
   }
 ]
