@@ -77,6 +77,10 @@
 .product button:active {
   transform: scale(0.97);
 }
+.product-link {
+  text-decoration: none;
+  color: inherit;
+}
 
 @media (max-width: 600px) {
   .product {

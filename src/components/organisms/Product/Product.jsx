@@ -1,15 +1,28 @@
 import React from 'react'
 import './Product.css'
+import { Link } from 'react-router-dom';
 export default function Product(props) {
     const {code,image,name,description,price,category} = props
   return (
-    <div className="product">
-        <div className="product-image" style={{backgroundImage: `url(${image})`}}></div>
+    <Link to={`/product/${code}`} className="product-link">
+      <div className="product">
+        <div
+          className="product-image"
+          style={{ backgroundImage: `url(${image})` }}
+        ></div>
         <div className="product-name">{name}</div>
         <div className="product-price">{price}</div>
-        <button onClick={()=>addToCart(props)}>Añadir al carro</button>
-    </div>
-  )
+        <button
+          onClick={(e) => {
+            e.preventDefault(); 
+            addToCart(props);
+          }}
+        >
+          Añadir al carro
+        </button>
+      </div>
+    </Link>
+  );
 }
 
 function addToCart(product){
