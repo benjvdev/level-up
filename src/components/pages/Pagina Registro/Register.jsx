@@ -12,6 +12,7 @@ export default function Register() {
   const [fechaNacimiento, setFechaNacimiento] = useState('');
   const [errorFecha, setErrorFecha] = useState('');
   const [errorSubmit, setErrorSubmit] = useState('');
+  const [mensaje,setMensaje] = useState('');
   const formRef = useRef(null)
   const mostrarError = errorNombre || errorEmail || errorFecha || errorClaves || errorSubmit;
 
@@ -165,6 +166,9 @@ export default function Register() {
   } else {
     setTimeout(() => setErrorSubmit(''), 0);  
     setErrorSubmit('');
+  }
+  if (email.value.includes('@duocuc.cl')){
+    setMensaje('¡Tienes un 20% de descuento de por vida!')
   }
   }
   return (

@@ -8,7 +8,6 @@ import CategoryMenu from "../../organisms/Category Menu/CategoryMenu";
 export default function CategoryPage() {
   const { categoryName } = useParams();
 
-  
   const allProducts = [
     {
       code: "1",
