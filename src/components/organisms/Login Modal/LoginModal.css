@@ -1,87 +1,122 @@
-#login-modal{
+#login-modal {
   position: fixed;
   display: flex;
-  height: 25vh;
-  width: 15vw;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
   flex-direction: column;
-  row-gap: .7rem;
+  padding: 1.5rem 2rem;
+  width: 15vw;
+  min-width: 280px;
+  align-items: center;
+  gap: 0.8rem;
+  box-sizing: border-box;
+  background-color: white;
   border-radius: .5rem;
   top: 5.99rem;
   right: 6.1%;
   transform: translateX(-50%);
-  background: white;
   border: 1px solid #ccc;
-  border-radius: .5rem;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
 }
-#login-modal > button{
- background-color:#1E90FF;
- border-color: #1E90FF;
- color: white;
- border-radius: .2rem;
- border-style: none;
- width: 12.5rem;
- height: 1.5rem;
+#login-modal h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  color: #333;
+  text-align: center;
 }
-#login-modal > button:hover{
-  cursor: pointer;
+#login-modal .error-text {
+  color: #d9534f;
+  background-color: #f2dede;
+  border: 1px solid #ebccd1;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 0.9rem;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 0.5rem;
 }
-#login-modal > input{
-  height: 1.5rem;
-  width: 12rem;
+
+#login-modal > input {
+  padding: 10px;
+  width: 100%; 
+  box-sizing: border-box;
   border-radius: .3rem;
   border-color: #c2c2c2;
   border-style: solid;
   border-width: .13rem;
+  transition: border-color 0.3s ease;
+}
+#login-modal > input:focus {
+  outline: none;
+  border-color: #1E90FF;
+}
+#login-modal > button {
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  
+  background-color: #1E90FF;
+  border-color: #1E90FF;
+  color: white;
+  border-radius: .2rem;
+  border-style: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#login-modal > button:hover {
+  background-color: #1C86EE;
+  border-color: #1C86EE;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(30, 144, 255, 0.3);
+}
+
+#login-modal > button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 @media (max-width: 1200px) {
   #login-modal {
     width: 20vw;
-    height: 28vh;
     right: 8%;
   }
 }
-
 @media (max-width: 992px) {
   #login-modal {
     width: 30vw;
-    height: 30vh;
     right: 10%;
     top: 6rem;
   }
 }
-
 @media (max-width: 768px) {
   #login-modal {
     width: 45vw;
-    height: 32vh;
     right: 5%;
     top: 6rem;
   }
 }
-
 @media (max-width: 576px) {
   #login-modal {
     width: 70vw;
-    height: auto;
+    height: auto; 
     top: 6rem;
     right: 50%;
     transform: translateX(50%);
-    padding: 1rem;
+    padding: 1.5rem; 
   }
-
   #login-modal > input,
   #login-modal > button {
     width: 100%;
   }
 }
-
 @media (max-width: 400px) {
   #login-modal {
     width: 85vw;
     font-size: 0.9rem;
+    padding: 1rem;
   }
 }

@@ -7,10 +7,16 @@
   background-color: #1E90FF;
 }
 
-#inicio-sesion{
-  padding-top: 1rem;
+#inicio-sesion, #user-info{
+padding-top: 1rem;
   color: white;
+  width: 120px;
+  text-align: center;
+  box-sizing: border-box; 
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 a :hover{
   cursor: pointer;
 }
+

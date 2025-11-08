@@ -12,7 +12,9 @@ export default function Register() {
   const [fechaNacimiento, setFechaNacimiento] = useState('');
   const [errorFecha, setErrorFecha] = useState('');
   const [errorSubmit, setErrorSubmit] = useState('');
-  const [mensaje,setMensaje] = useState('');
+  const [apellidos, setApellidos] = useState('');
+  const [direccion, setDireccion] = useState('');
+  const [mensaje, setMensaje] = useState('');
   const formRef = useRef(null)
   const mostrarError = errorNombre || errorEmail || errorFecha || errorClaves || errorSubmit;
 
@@ -94,6 +96,8 @@ export default function Register() {
     setFechaNacimiento('');
     setErrorFecha('');
     setErrorSubmit('')
+    setApellidos('');
+    setDireccion('');
 };
   useEffect(() => {
   if (!errorNombre && !errorEmail && !errorFecha && !errorClaves) {
@@ -101,7 +105,8 @@ export default function Register() {
   }
 }, [errorNombre, errorEmail, errorFecha, errorClaves]);
 
-  const handleSubmit = (e) =>{
+  const handleSubmit = async (e) =>{
+    e.preventDefault();
     let hayError = false;
 
   if (nombre.length < 3) {
@@ -161,14 +166,46 @@ export default function Register() {
   }
 
   if (hayError) {
-    e.preventDefault();
     setErrorSubmit('Error, faltan campos por corregir!'); 
-  } else {
-    setTimeout(() => setErrorSubmit(''), 0);  
+  } else {  
     setErrorSubmit('');
-  }
-  if (email.value.includes('@duocuc.cl')){
-    setMensaje('¡Tienes un 20% de descuento de por vida!')
+    //formateo de la fecha para que coincida con el backend
+    const parts = fechaNacimiento.split('-'); 
+    const fechaParaBackend = `${parts[2]}-${parts[1]}-${parts[0]}`;
+
+    const payload = {
+        nombres: nombre,
+        apellidos: apellidos, 
+        email: email,
+        password: clave1,
+        rol: 'USER',
+        fechaNacimiento: fechaParaBackend, 
+        direccion: direccion
+      };
+      try {
+        const response = await fetch('http://localhost:8080/usuarios/registro', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+          const successMessage = await response.text();
+          setMensaje(successMessage); 
+          if(formRef.current) formRef.current.reset(); 
+          handleReset(); 
+        } else {
+          const errorMessage = await response.text(); 
+          setErrorSubmit(errorMessage);
+          setMensaje('');
+        }
+      } catch (error) {
+        console.error('Error de conexión:', error);
+        setErrorSubmit('No se pudo conectar al servidor. Inténtalo más tarde.');
+        setMensaje('');
+      }
   }
   }
   return (
@@ -187,6 +224,8 @@ export default function Register() {
           <div className="row">
               <label htmlFor="apellidos">Apellidos:</label>
               <input type="text" id="apellidos" placeholder="Perez Muñoz"
+                value={apellidos}
+                onChange={(e) => setApellidos(e.target.value)}
               />
           </div>
           <div className="row">
@@ -205,7 +244,10 @@ export default function Register() {
           </div>
           <div className="row">
               <label htmlFor="direccion">Dirección:</label>
-              <input type="text" id="direccion" placeholder="Los Molles #25"/>
+              <input type="text" id="direccion" placeholder="Los Molles #25"
+                value={direccion}
+                onChange={(e) => setDireccion(e.target.value)}
+              />
           </div>
           <div className="row">
               <label htmlFor="clave1">Contraseña:</label>
@@ -224,7 +266,7 @@ export default function Register() {
           <p id="errores">{mostrarError}</p>
           <div className="button-container">
             <button type="reset" onClick={handleReset}>Limpiar</button>
-            <button type="submit" onClick={handleSubmit}>Registrarme</button>  
+            <button type="submit">Registrarme</button>  
           </div>
       </form>
     </div>
