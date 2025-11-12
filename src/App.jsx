@@ -7,13 +7,16 @@ import Register from './components/pages/Pagina Registro/Register'
 import Cart from './components/pages/Cart Page/Cart'
 import CategoryPage from './components/pages/Category page/CategoryPage.Jsx'
 import DetalleProducto from './components/pages/Detalle Producto/DetalleProducto'
+import AdminRoute from './admin/AdminRoute'
+import ProductListAdmin from './admin/ProductListAdmin/ProductListAdmin'
+import AdminPage from './admin/Admin page/AdminPage'
+
 
 
 function App() {
   return (
     <BrowserRouter>
-      {/* <Link to='/'>Home</Link>
-      <Link to='/about'>About</Link> */}
+      
       <Routes>
         <Route path='/' element={<Inicio />} />
         <Route path='/register' element={<Register />} />
@@ -21,6 +24,14 @@ function App() {
         <Route path='/cart' element={<Cart />} />
         <Route path="/categories/:categoryName" element={<CategoryPage />} />
         <Route path="/product/:productCode" element={<DetalleProducto />} />
+
+        <Route element={<AdminRoute />}>
+          <Route path="/admin" element={<AdminPage />}>
+            <Route index element={<ProductListAdmin />} /> 
+            <Route path="products" element={<ProductListAdmin />} />
+          </Route>
+        </Route>
+
       </Routes>
     </BrowserRouter>
   );  

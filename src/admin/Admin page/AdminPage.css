@@ -1,0 +1,82 @@
+.admin-layout {
+  display: flex;
+  min-height: calc(100vh - 60px); /* Asume que el TopBar mide 60px */
+  background-color: #f4f7f6;
+}
+
+/* --- Barra Lateral (Sidebar) --- */
+.admin-sidebar {
+  width: 250px;
+  background-color: #2c3e50; /* Color oscuro para el sidebar */
+  color: #ecf0f1;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0; /* Evita que se encoja */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.admin-sidebar-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #34495e;
+  text-align: center;
+}
+.admin-sidebar-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+.admin-sidebar-header span {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* --- Navegación del Sidebar --- */
+.admin-nav {
+  flex-grow: 1; /* Ocupa el espacio disponible */
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+}
+.admin-nav-link {
+  color: #ecf0f1;
+  text-decoration: none;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  transition: background-color 0.2s ease, padding-left 0.2s ease;
+}
+.admin-nav-link:hover {
+  background-color: #34495e;
+  padding-left: 2rem;
+}
+/* Estilo para el link activo */
+.admin-nav-link.active {
+  background-color: #1E90FF; /* Tu color principal */
+  color: white;
+  font-weight: bold;
+}
+
+/* --- Pie del Sidebar (Logout) --- */
+.admin-sidebar-footer {
+  padding: 1.5rem;
+  border-top: 1px solid #34495e;
+}
+.admin-logout-button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: #e74c3c; /* Botón rojo para logout */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.admin-logout-button:hover {
+  background-color: #c0392b;
+}
+
+/* --- Área de Contenido Principal --- */
+.admin-content {
+  flex-grow: 1; /* Ocupa el resto del espacio */
+  padding: 2rem;
+  overflow-y: auto; /* Permite scroll si el contenido es largo */
+}

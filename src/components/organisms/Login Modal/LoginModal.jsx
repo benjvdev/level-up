@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './LoginModal.css';
 import { useAuth } from '../../../context/AuthContext';
+import { useNavigate } from 'react-router-dom'; // <-- 1. Importar useNavigate
 
 
 export default function LoginModal() {
@@ -10,6 +11,7 @@ export default function LoginModal() {
   const [isLoading, setIsLoading] = useState(false);
 
   const { login } = useAuth(); //función login del contexto
+  const navigate = useNavigate(); // inicializar useNavigate
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +25,16 @@ export default function LoginModal() {
     }
 
     try {
-      await login(email, password);
+      //respuesta del AuthContext
+      const userData = await login(email, password);
+
+      // redireccion basada en el rol
+      if (userData && userData.rol.trim().toUpperCase() === 'ADMIN') {
+        navigate('/admin');
+      } else {
+        navigate('/');
+      }
+
     } catch (err) {
       setError(err.message);
     } finally {

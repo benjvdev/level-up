@@ -1,0 +1,134 @@
+.admin-page-container {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.admin-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.admin-page-header h1 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 2rem;
+}
+
+.admin-add-button {
+  background-color: #1E90FF;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.admin-add-button:hover {
+  background-color: #1c86ee;
+  transform: translateY(-2px);
+}
+
+/* --- Estilos de la Tabla --- */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.admin-table thead {
+  background-color: #f8f9fa;
+}
+
+.admin-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.admin-table tbody tr {
+  border-bottom: 1px solid #e9ecef;
+  transition: background-color 0.1s ease;
+}
+.admin-table tbody tr:last-child {
+  border-bottom: none;
+}
+.admin-table tbody tr:hover {
+  background-color: #fdfdfd;
+}
+
+.admin-table td {
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+.admin-table-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+/* --- Botones de Acción --- */
+.admin-action-button {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+.admin-action-button.edit {
+  background-color: #ffc107;
+  color: #333;
+}
+.admin-action-button.edit:hover {
+  background-color: #e0a800;
+}
+.admin-action-button.delete {
+  background-color: #e74c3c;
+  color: white;
+}
+.admin-action-button.delete:hover {
+  background-color: #c0392b;
+}
+
+/* --- Mensajes de Carga/Error --- */
+.admin-loading,
+.admin-error {
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 2rem;
+  color: #555;
+}
+.admin-error {
+  color: #e74c3c;
+}
+.admin-empty-state {
+  text-align: center;
+  padding: 3rem 2rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px dashed #dee2e6;
+  margin-top: 2rem;
+}
+.admin-empty-state h2 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+.admin-empty-state p {
+  color: #555;
+  font-size: 1.1rem;
+}

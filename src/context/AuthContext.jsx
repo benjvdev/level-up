@@ -5,11 +5,13 @@ const AuthContext = createContext(null);
 
 //componente que provee el contexto
 export function AuthProvider({ children }) {
+
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true); 
+
   // cargar la sesión desde localStorage al iniciar
   useEffect(() => {
-    setLoading(true);
+    setIsLoading(true); 
     try {
       const storedUserData = localStorage.getItem('userData');
       if (storedUserData) {
@@ -19,12 +21,13 @@ export function AuthProvider({ children }) {
       console.error("Error al cargar datos de sesión:", error);
       localStorage.removeItem('userData');
     } finally {
-      setLoading(false);
+      setIsLoading(false); 
     }
   }, []);//se ejecuta solo una vez al montar
 
   //funcion de login
   const login = async (email, password) => {
+
     const payload = { email, password };
     try {
       const response = await fetch(API_URL, {
@@ -36,6 +39,7 @@ export function AuthProvider({ children }) {
         const userData = await response.json();
         localStorage.setItem('userData', JSON.stringify(userData));
         setUser(userData); //actualiza el estado global
+        return userData;
       } else {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Credenciales incorrectas.');
@@ -50,21 +54,22 @@ export function AuthProvider({ children }) {
     localStorage.removeItem('userData');
     setUser(null); //actualiza el estado global
   };
-  //valor del Contexto
+  
+  //valor del contexto
   const value = useMemo(
     () => ({
       user,
-      loading,
+      isLoading, 
       login,
       logout,
     }),
-    [user, loading]
+    [user, isLoading] 
   );
+
   //retornar el proveedor
   return (
     <AuthContext.Provider value={value}>
-      {}
-      {!loading && children}
+      {children}
     </AuthContext.Provider>
   );
 }
