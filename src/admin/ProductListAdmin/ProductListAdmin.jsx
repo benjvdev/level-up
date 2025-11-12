@@ -6,7 +6,7 @@ export default function ProductListAdmin() {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { user } = useAuth(); // (Opcional) Para el token si es necesario
+  const { user } = useAuth(); 
 
   // Función para cargar los productos
   const fetchProducts = async () => {
@@ -18,9 +18,6 @@ export default function ProductListAdmin() {
       }
       const data = await response.json();
       
-      // --- 1. CORRECCIÓN IMPORTANTE ---
-      // Asegurarnos de que 'data' sea un array. Si la API devuelve null o undefined,
-      // lo convertimos a un array vacío [] para evitar el crash.
       setProducts(Array.isArray(data) ? data : []);
 
     } catch (err) {
@@ -35,7 +32,7 @@ export default function ProductListAdmin() {
     fetchProducts();
   }, []);
 
-  // Función de Borrado (a implementar)
+  // función de borrado 
   const handleDelete = async (id) => {
     if (window.confirm('¿Estás seguro de que quieres eliminar este producto?')) {
       console.log('Eliminar producto con id:', id);
@@ -43,7 +40,7 @@ export default function ProductListAdmin() {
     }
   };
 
-  // Función de Edición (a implementar)
+  // función de edición 
   const handleEdit = (id) => {
     console.log('Editar producto con id:', id);
     // TODO: Implementar redirección
@@ -59,15 +56,12 @@ export default function ProductListAdmin() {
         <button className="admin-add-button">Añadir Producto</button>
       </div>
 
-      {/* --- 2. NUEVA SECCIÓN --- */}
-      {/* Comprobamos si, después de cargar, la lista de productos está vacía */}
       {products.length === 0 ? (
         <div className="admin-empty-state">
           <h2>No hay productos</h2>
           <p>Aún no has añadido ningún producto. ¡Empieza haciendo clic en "Añadir Producto"!</p>
         </div>
       ) : (
-        /* Si hay productos, mostramos la tabla */
         <table className="admin-table">
           <thead>
             <tr>
@@ -92,9 +86,6 @@ export default function ProductListAdmin() {
                   />
                 </td>
                 <td data-label="Nombre">{product.nombre}</td>
-                {/* Añadimos '?' (optional chaining) por si 'precio' 
-                  alguna vez es nulo. Esto evita un crash.
-                */}
                 <td data-label="Precio">${product.precio?.toLocaleString('es-CL') || 'N/A'}</td>
                 <td data-label="Categoría">{product.categoria}</td>
                 <td data-label="Acciones">

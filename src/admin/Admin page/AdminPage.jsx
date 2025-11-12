@@ -28,13 +28,7 @@ export default function AdminPage() {
           >
             Gestionar Productos
           </NavLink>
-          {/* <NavLink 
-            to="/admin/users" 
-            className={({ isActive }) => isActive ? 'admin-nav-link active' : 'admin-nav-link'}
-          >
-            Gestionar Usuarios 
-          </NavLink>
-          */}
+
         </nav>
         <div className="admin-sidebar-footer">
           <button onClick={handleLogout} className="admin-logout-button">
@@ -43,9 +37,8 @@ export default function AdminPage() {
         </div>
       </aside>
 
-      {/* --- Contenido Principal --- */}
       <main className="admin-content">
-        {/* Aquí se renderizarán las sub-páginas (ej. ProductListAdmin) */}
+        
         <Outlet />
       </main>
     </div>
