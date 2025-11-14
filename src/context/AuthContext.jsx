@@ -7,19 +7,27 @@ const AuthContext = createContext(null);
 export function AuthProvider({ children }) {
 
   const [user, setUser] = useState(null);
+  const [token, setToken] = useState(() => localStorage.getItem('authToken')); // estado para el token
   const [isLoading, setIsLoading] = useState(true); 
 
-  // cargar la sesión desde localStorage al iniciar
+  //cargar la sesión desde localStorage al iniciar
   useEffect(() => {
     setIsLoading(true); 
     try {
       const storedUserData = localStorage.getItem('userData');
-      if (storedUserData) {
+      const storedToken = localStorage.getItem('authToken');
+
+      if (storedUserData && storedToken) {
         setUser(JSON.parse(storedUserData));
+        setToken(storedToken);
+      } else {
+        localStorage.removeItem('userData');
+        localStorage.removeItem('authToken');
       }
     } catch (error) {
-      console.error("Error al cargar datos de sesión:", error);
+      console.error("error al cargar datos de sesión:", error);
       localStorage.removeItem('userData');
+      localStorage.removeItem('authToken');
     } finally {
       setIsLoading(false); 
     }
@@ -35,24 +43,47 @@ export function AuthProvider({ children }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
+
       if (response.ok) {
-        const userData = await response.json();
+      
+        const data = await response.json(); 
+  
+        if (!data.token || !data.user) { // Comprobamos ambas claves
+          throw new Error('respuesta inválida del servidor (falta token o user)');
+        }
+
+        //extraemos las dos partes
+        const authToken = data.token;
+        const userData = data.user;
+        
+        //guardamos las partes correctas
         localStorage.setItem('userData', JSON.stringify(userData));
-        setUser(userData); //actualiza el estado global
-        return userData;
+        localStorage.setItem('authToken', authToken);
+        
+        //actualizamos el estado global
+        setUser(userData);
+        setToken(authToken); 
+
+        //devolvemos solo los datos del usuario (el objeto anidado)
+        return userData; 
+
       } else {
         const errorData = await response.json();
-        throw new Error(errorData.message || 'Credenciales incorrectas.');
+        const message = errorData.message || 'Credenciales incorrectas.';
+        throw new Error(message);
       }
     } catch (err) {
-      console.error("Error en el login:", err);
+      console.error("error en el login:", err);
       throw err;
     }
   };
-  //funcion de Logout
+
+  //funcion de logout
   const logout = () => {
     localStorage.removeItem('userData');
-    setUser(null); //actualiza el estado global
+    localStorage.removeItem('authToken'); 
+    setUser(null); 
+    setToken(null); 
   };
   
   //valor del contexto
@@ -60,10 +91,11 @@ export function AuthProvider({ children }) {
     () => ({
       user,
       isLoading, 
+      token, //proveemos el token
       login,
       logout,
     }),
-    [user, isLoading] 
+    [user, isLoading, token] //dependencias
   );
 
   //retornar el proveedor
@@ -74,7 +106,7 @@ export function AuthProvider({ children }) {
   );
 }
 
-// 8. hook personalizado
+// hook personalizado
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {

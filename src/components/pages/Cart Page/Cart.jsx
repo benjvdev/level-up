@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './Cart.css'
 import TopBar from '../../organisms/Top Bar/TopBar'
+import Price from '../../atoms/Price/Price'; 
 
 export default function Cart() {
     const [products, setProducts] = useState(
@@ -62,7 +63,8 @@ export default function Cart() {
                                 <div className="cart-info">
                                     <p className="cart-name">{p.name}</p>
                                     <p className="cart-description">{p.description}</p>
-                                    <p className="cart-price">{p.price}</p>
+                                    
+                                    <Price amount={p.price} className="cart-price" />
 
                                     <div className="cart-controls">
                                         <button onClick={() => decreaseQuantity(p.code)}>-</button>

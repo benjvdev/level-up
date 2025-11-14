@@ -5,11 +5,12 @@ import About from './components/pages/About page/About'
 import { Link } from 'react-router-dom'
 import Register from './components/pages/Pagina Registro/Register'
 import Cart from './components/pages/Cart Page/Cart'
-import CategoryPage from './components/pages/Category page/CategoryPage.Jsx'
+import CategoryPage from './components/pages/Category page/CategoryPage.jsx'
 import DetalleProducto from './components/pages/Detalle Producto/DetalleProducto'
 import AdminRoute from './admin/AdminRoute'
 import ProductListAdmin from './admin/ProductListAdmin/ProductListAdmin'
 import AdminPage from './admin/Admin page/AdminPage'
+import ProductForm from './admin/Admin Product Form/ProductForm'
 
 
 
@@ -23,12 +24,13 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/cart' element={<Cart />} />
         <Route path="/categories/:categoryName" element={<CategoryPage />} />
-        <Route path="/product/:productCode" element={<DetalleProducto />} />
+        <Route path="/product/:id" element={<DetalleProducto />} />
 
         <Route element={<AdminRoute />}>
           <Route path="/admin" element={<AdminPage />}>
             <Route index element={<ProductListAdmin />} /> 
             <Route path="products" element={<ProductListAdmin />} />
+            <Route path="products/new" element={<ProductForm />} />
           </Route>
         </Route>
 

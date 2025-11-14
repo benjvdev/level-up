@@ -1,6 +1,9 @@
 import React from 'react'
 import './Product.css'
 import { Link } from 'react-router-dom';
+import Price from '../../atoms/Price/Price';
+ 
+
 export default function Product(props) {
     const {code,image,name,description,price,category} = props
   return (
@@ -11,7 +14,9 @@ export default function Product(props) {
           style={{ backgroundImage: `url(${image})` }}
         ></div>
         <div className="product-name">{name}</div>
-        <div className="product-price">{price}</div>
+
+        <Price amount={price} className="product-price" />
+
         <button
           onClick={(e) => {
             e.preventDefault(); 

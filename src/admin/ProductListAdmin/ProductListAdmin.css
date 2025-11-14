@@ -78,7 +78,6 @@
   border: 1px solid #eee;
 }
 
-/* --- Botones de Acción --- */
 .admin-action-button {
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
@@ -104,7 +103,6 @@
   background-color: #c0392b;
 }
 
-/* --- Mensajes de Carga/Error --- */
 .admin-loading,
 .admin-error {
   font-size: 1.2rem;

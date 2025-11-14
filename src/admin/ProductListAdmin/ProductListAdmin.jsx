@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './ProductListAdmin.css';
 import { useAuth } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom'; 
+import Price from '../../components/atoms/Price/Price';
 
 export default function ProductListAdmin() {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { user } = useAuth(); 
+  const { token } = useAuth(); 
+  const navigate = useNavigate(); 
 
-  // Función para cargar los productos
+  // función para cargar los productos 
   const fetchProducts = async () => {
     setIsLoading(true);
     try {
@@ -27,36 +30,65 @@ export default function ProductListAdmin() {
     }
   };
 
-  // Cargar productos cuando el componente se monta
+  //cargar productos cuando el componente se monta
   useEffect(() => {
     fetchProducts();
   }, []);
 
-  // función de borrado 
+  // función de eliminación 
   const handleDelete = async (id) => {
     if (window.confirm('¿Estás seguro de que quieres eliminar este producto?')) {
-      console.log('Eliminar producto con id:', id);
-      // TODO: Implementar llamada a API DELETE /admin/productos/{id}
+      setError(null); 
+
+      if (!token) {
+        setError('no estas autenticado. por favor, inicia sesión de nuevo.');
+        return;
+      }
+
+      try {
+        const response = await fetch(`http://localhost:8080/admin/productos/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(errorText || 'Error al eliminar el producto');
+        }
+        fetchProducts(); 
+      } catch (err) {
+        console.error("error al eliminar:", err);
+        setError(err.message);
+      }
     }
   };
 
-  // función de edición 
+  // función de edición (sin cambios)
   const handleEdit = (id) => {
     console.log('Editar producto con id:', id);
-    // TODO: Implementar redirección
+    // navigate(`/admin/products/edit/${id}`);
   };
 
   if (isLoading) return <div className="admin-loading">Cargando productos...</div>;
-  if (error) return <div className="admin-error">Error: {error}</div>;
 
   return (
     <div className="admin-page-container">
       <div className="admin-page-header">
         <h1>Gestión de Productos</h1>
-        <button className="admin-add-button">Añadir Producto</button>
+        
+        <button 
+          className="admin-add-button"
+          onClick={() => navigate('/admin/products/new')} 
+        >
+          Añadir Producto
+        </button>
       </div>
 
-      {products.length === 0 ? (
+      {error && <div className="admin-error global-error">Error: {error}</div>}
+
+      {products.length === 0 && !isLoading ? (
         <div className="admin-empty-state">
           <h2>No hay productos</h2>
           <p>Aún no has añadido ningún producto. ¡Empieza haciendo clic en "Añadir Producto"!</p>
@@ -86,7 +118,10 @@ export default function ProductListAdmin() {
                   />
                 </td>
                 <td data-label="Nombre">{product.nombre}</td>
-                <td data-label="Precio">${product.precio?.toLocaleString('es-CL') || 'N/A'}</td>
+                <td data-label="Precio">
+                  <Price amount={product.precio} />
+                </td>
+                
                 <td data-label="Categoría">{product.categoria}</td>
                 <td data-label="Acciones">
                   <button 
