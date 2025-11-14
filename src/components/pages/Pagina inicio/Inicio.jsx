@@ -3,6 +3,7 @@ import TopBar from '../../organisms/Top Bar/TopBar';
 import Product from '../../organisms/Product/Product';
 import './Inicio.css';
 import CategoryMenu from '../../organisms/Category Menu/CategoryMenu';
+import { processProductsForFrontend } from '../../../utils/processPeoductsForFrontend';
 
 export default function Inicio() {
   
@@ -20,19 +21,10 @@ export default function Inicio() {
           throw new Error('no se pudieron cargar los productos');
         }
         const data = await response.json();
-
-        //transformamos los datos del backend al formato que el Product.jsx espera
-        const transformedData = data.map(product => ({
-          code: product.id_producto,
-          name: product.nombre,
-          description: product.descripcion,
-          price: product.precio,
-          category: product.categoria,
-          image: product.image,
-          id_producto: product.id_producto 
-        }));
         
-        setProducts(transformedData);
+        //usamos la función utilitaria para procesar los productos
+        const finalProducts = processProductsForFrontend(data);
+        setProducts(finalProducts);
 
       } catch (err) {
         setError(err.message);
@@ -57,7 +49,7 @@ export default function Inicio() {
     }
 
     return products.map((p) => (
-      // usamos 'p.code' que ahora es el id para el key
+      // usamos 'p.code' que es el id para el key
       <Product key={p.code} {...p} />
     ));
   };

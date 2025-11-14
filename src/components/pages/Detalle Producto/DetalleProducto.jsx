@@ -26,6 +26,11 @@ export default function DetalleProducto() {
         }
         const data = await response.json(); 
 
+        // comprobamos si el producto está disponible
+        if (data.disponible === false) {
+          //si no lo está, lo tratamos como si no se hubiera encontrado
+          throw new Error('producto no encontrado');
+        }
         const transformedProduct = {
           code: data.id_producto,
           name: data.nombre,

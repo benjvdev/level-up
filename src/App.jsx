@@ -31,6 +31,7 @@ function App() {
             <Route index element={<ProductListAdmin />} /> 
             <Route path="products" element={<ProductListAdmin />} />
             <Route path="products/new" element={<ProductForm />} />
+            <Route path="products/edit/:id" element={<ProductForm />} />
           </Route>
         </Route>
 

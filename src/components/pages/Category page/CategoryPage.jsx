@@ -4,6 +4,7 @@ import "./CategoryPage.css";
 import Product from "../../organisms/Product/Product";
 import TopBar from "../../organisms/Top Bar/TopBar";
 import CategoryMenu from "../../organisms/Category Menu/CategoryMenu";
+import { processProductsForFrontend } from "../../../utils/processPeoductsForFrontend";
 
 export default function CategoryPage() {
   const { categoryName } = useParams();
@@ -26,25 +27,15 @@ export default function CategoryPage() {
           throw new Error('no se pudieron cargar los productos');
         }
         const data = await response.json();
-
+        //funcion utilitaria para procesar productos
+        const processedProducts = processProductsForFrontend(data);
         //aplicamos la lógica de filtro que ya tenías
         const normalizedCategory = categoryName.replace(/-/g, " ").toLowerCase();
-        const filteredData = data.filter(
-          (p) => p.categoria.toLowerCase() === normalizedCategory
+        const categoryFilteredProducts = processedProducts.filter(
+          (p) => p.category.toLowerCase() === normalizedCategory
         );
 
-        //transformamos los datos para el componente <Product />
-        const transformedData = filteredData.map(product => ({
-          code: product.id_producto, // usamos id_producto como 'code'
-          name: product.nombre,
-          description: product.descripcion,
-          price: product.precio,
-          category: product.categoria,
-          image: product.image,
-          id_producto: product.id_producto
-        }));
-
-        setFilteredProducts(transformedData);
+        setFilteredProducts(categoryFilteredProducts);
 
       } catch (err) {
         setError(err.message);

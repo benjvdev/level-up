@@ -65,10 +65,10 @@ export default function ProductListAdmin() {
     }
   };
 
-  // función de edición (sin cambios)
+  // función de edición 
   const handleEdit = (id) => {
     console.log('Editar producto con id:', id);
-    // navigate(`/admin/products/edit/${id}`);
+    navigate(`/admin/products/edit/${id}`);
   };
 
   if (isLoading) return <div className="admin-loading">Cargando productos...</div>;
