@@ -29,7 +29,7 @@ export default function CategoryPage() {
         const data = await response.json();
         //funcion utilitaria para procesar productos
         const processedProducts = processProductsForFrontend(data);
-        //aplicamos la lógica de filtro que ya tenías
+        //lógica de filtro 
         const normalizedCategory = categoryName.replace(/-/g, " ").toLowerCase();
         const categoryFilteredProducts = processedProducts.filter(
           (p) => p.category.toLowerCase() === normalizedCategory
@@ -70,9 +70,8 @@ export default function CategoryPage() {
       <TopBar/>
       <CategoryMenu/>
       <div className="category-page">
-        <h1 className="category-title">{categoryName.replace(/-/g, " ")}</h1>
+        <h1 className="category-title">{categoryName.replace(/-/g, " ").replace(/Y/g, "y")}</h1>
         <div className="category-products">
-          
           {renderProducts()}
         </div>
       </div>

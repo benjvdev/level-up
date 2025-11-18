@@ -4,6 +4,7 @@ import Product from '../../organisms/Product/Product';
 import './Inicio.css';
 import CategoryMenu from '../../organisms/Category Menu/CategoryMenu';
 import { processProductsForFrontend } from '../../../utils/processPeoductsForFrontend';
+import ProductCarousel from '../../organisms/ProductCarousel/ProductCarousel';
 
 export default function Inicio() {
   
@@ -58,6 +59,7 @@ export default function Inicio() {
     <>
       <TopBar/> 
       <CategoryMenu/>
+      <ProductCarousel/>
       <div id="products">
         {renderProducts()}
       </div>    

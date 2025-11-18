@@ -81,7 +81,6 @@ export default function ProductForm() {
       const payload = {
         ...formData,
         precio: parseFloat(formData.precio), // el backend espera un numero
-        //no enviamos el id_producto en el body ya que el backend lo ignora
       };
 
       // decidimos el metodo y la url segun el modo

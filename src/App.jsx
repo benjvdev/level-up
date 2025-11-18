@@ -11,6 +11,7 @@ import AdminRoute from './admin/AdminRoute'
 import ProductListAdmin from './admin/ProductListAdmin/ProductListAdmin'
 import AdminPage from './admin/Admin page/AdminPage'
 import ProductForm from './admin/Admin Product Form/ProductForm'
+import SearchResults from './components/pages/Search Results/SearchResults.jsx'
 
 
 
@@ -25,6 +26,7 @@ function App() {
         <Route path='/cart' element={<Cart />} />
         <Route path="/categories/:categoryName" element={<CategoryPage />} />
         <Route path="/product/:id" element={<DetalleProducto />} />
+         <Route path="/search" element={<SearchResults/>} />
 
         <Route element={<AdminRoute />}>
           <Route path="/admin" element={<AdminPage />}>
